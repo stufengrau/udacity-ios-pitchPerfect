@@ -24,6 +24,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func startRecording(sender: AnyObject) {
+        print("startRecording Button pressed.")
+    }
 
+    @IBAction func stopRecording(sender: AnyObject) {
+        print("stopRecording Button pressed.")
+    }
 }
 
