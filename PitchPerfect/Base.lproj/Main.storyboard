@@ -43,6 +43,11 @@
                             <constraint firstItem="O1Q-Kp-DIj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tjv-lV-ND5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recordButton" destination="O1Q-Kp-DIj" id="j8w-qQ-9cl"/>
+                        <outlet property="recordingLabel" destination="EmU-Hm-MOs" id="kqZ-GW-ocI"/>
+                        <outlet property="stopRecordingButton" destination="jUB-av-l3w" id="bdx-fE-NT4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
