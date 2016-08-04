@@ -30,6 +30,24 @@ class PlaySoundsViewController: UIViewController {
         case Slow = 0, Fast, Chipmunk, Vader, Echo, Reverb
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        print("PlaySoundsViewController loaded")
+        setupAudio()
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        configureUI(.NotPlaying)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: playback with different sound effects
     @IBAction func playSoundForButton(sender: UIButton) {
         print("Play Sound Button Pressed")
         
@@ -51,29 +69,12 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.Playing)
     }
     
+    // MARK: stop playback
     @IBAction func stopButtonPressed(sender: AnyObject) {
         print("Stop Audio Button Pressed")
         stopAudio()
         configureUI(.NotPlaying)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        print("PlaySoundsViewController loaded")
-        setupAudio()
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        configureUI(.NotPlaying)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
