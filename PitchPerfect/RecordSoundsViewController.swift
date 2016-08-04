@@ -17,10 +17,12 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder:AVAudioRecorder!
     
+    enum recordingState { case Recording, NotRecording }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        stopRecordingButton.enabled = false
+        configureUI(.NotRecording)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +32,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func startRecording(sender: AnyObject) {
         print("startRecording Button pressed.")
-        recordingLabel.text = "Recording in progress"
-        recordButton.enabled = false
-        stopRecordingButton.enabled = true
+        configureUI(.Recording)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         
@@ -53,9 +53,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func stopRecording(sender: AnyObject) {
         print("stopRecording Button pressed.")
-        stopRecordingButton.enabled = false
-        recordButton.enabled = true
-        recordingLabel.text = "Tap to record"
+        configureUI(.NotRecording)
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
@@ -77,5 +75,19 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             playSoundsVC.recordedAudioURL = recordedAudioURL
         }
     }
+    
+    func configureUI(recordState: recordingState) {
+        switch(recordState) {
+        case .Recording:
+            recordingLabel.text = "Recording in progress"
+            recordButton.enabled = false
+            stopRecordingButton.enabled = true
+        case .NotRecording:
+            recordingLabel.text = "Tap to record"
+            recordButton.enabled = true
+            stopRecordingButton.enabled = false
+        }
+    }
+    
 }
 
