@@ -25,14 +25,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         configureUI(.NotRecording)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: Start Recording Audio
     @IBAction func startRecording(sender: AnyObject) {
-        print("startRecording Button pressed.")
         configureUI(.Recording)
         
         // Create path for recorded audio file
@@ -41,7 +35,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        print(filePath)
         
         // Create audio session and record audio
         let session = AVAudioSession.sharedInstance()
@@ -59,7 +52,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     // MARK: Stop Recording Audio
     @IBAction func stopRecording(sender: AnyObject) {
-        print("stopRecording Button pressed.")
         configureUI(.NotRecording)
         // stop recording and deactivate audio session
         audioRecorder.stop()
@@ -69,11 +61,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     // make sure recorded file finished saving
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("AVAudioRecorder finished saving recording")
-        if (flag) {
-            self.performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+        if flag {
+            createAlert("Saving of recording failed")
+            performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
         } else {
-            print("Saving of recording failed")
+            createAlert("Saving of recording failed")
         }
     }
     
@@ -101,5 +93,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    // MARK: Create Alert Message
+    func createAlert(alertMessage: String) {
+        let alert = UIAlertController(title: nil, message: alertMessage, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
 }
 
