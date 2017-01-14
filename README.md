@@ -11,7 +11,7 @@ This iOS app records audio and offers a playback with various sound effects.
 ## Goals
 
 * Get familiar with Xcode and the Interface Builder
-* Add some buttons and labels and play around with constraints
+* Add some buttons/labels and play around with StackViews and constraints
 * Set buttons active/inactive, change labels according to the state
 * Add a second view controller, embed all in a navigation controller
 * Create IBOutlets and IBActions
@@ -22,10 +22,10 @@ This iOS app records audio and offers a playback with various sound effects.
 
 ### Record Audio
 
-![alt text](Screenshots/PitchPerfect_RecordingInactive.png "Ready to record ...")
-![alt text](Screenshots/PitchPerfect_RecordingActive.png "Recording in progress ...")
+![alt text](Screenshots/RecordingInactive.png "Ready to record ...")
+![alt text](Screenshots/RecordingActive.png "Recording in progress ...")
 
 ### Playback Audio
 
-![alt text](Screenshots/PitchPerfect_PlaybackInactive.png "Ready to playback ...")
-![alt text](Screenshots/PitchPerfect_PlaybackActive.png "Playback in progress ...")
+![alt text](Screenshots/PlaybackInactive.png "Ready to playback ...")
+![alt text](Screenshots/PlaybackActive.png "Playback in progress ...")
