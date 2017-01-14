@@ -22,10 +22,10 @@ This iOS app records audio and offers a playback with various sound effects.
 
 ### Record Audio
 
-![alt text](PitchPerfect_RecordingInactive.png "Ready to record ...")
-![alt text](PitchPerfect_RecordingActive.png "Recording in progress ...")
+![alt text](Screenshots/PitchPerfect_RecordingInactive.png "Ready to record ...")
+![alt text](Screenshots/PitchPerfect_RecordingActive.png "Recording in progress ...")
 
 ### Playback Audio
 
-![alt text](PitchPerfect_PlaybackInactive.png "Ready to playback ...")
-![alt text](PitchPerfect_PlaybackActive.png "Playback in progress ...")
+![alt text](Screenshots/PitchPerfect_PlaybackInactive.png "Ready to playback ...")
+![alt text](Screenshots/PitchPerfect_PlaybackActive.png "Playback in progress ...")
